@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Speech-to-Text Application</h1>
+  <form (ngSubmit)="onSubmit()">
+    <input type="file" (change)="onFileSelected($event)" />
+    <button type="button" (click)="onSubmit()">Transcribe</button>
+  </form>
+
+  <div *ngIf="transcription">
+    <h2>Transcription:</h2>
+    <p>{{ transcription }}</p>
+  </div>
+</div>
