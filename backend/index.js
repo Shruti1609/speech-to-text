@@ -11,11 +11,10 @@ const port = 3000;
 const upload = multer({ dest: 'uploads/' });
 
 // Set up Google Cloud credentials
-process.env.GOOGLE_APPLICATION_CREDENTIALS = path.join(__dirname, 'speectotext.json');
+process.env.GOOGLE_APPLICATION_CREDENTIALS = path.join('speectotext.json');
 
 const client = new speech.SpeechClient();
 
-// POST /api/transcribe endpoint
 app.post('/api/transcribe', upload.single('audio'), async (req, res) => {
   try {
     if (!req.file) {
